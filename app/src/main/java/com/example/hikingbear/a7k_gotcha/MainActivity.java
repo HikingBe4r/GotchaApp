@@ -1,16 +1,27 @@
 package com.example.hikingbear.a7k_gotcha;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.view.View;
-import android.widget.EditText;
-import android.content.SharedPreferences;   //db에 저장하긴 애매할때. 안드로이드에서 제공해줌.
-import android.widget.CheckBox;
 import android.widget.Button;
-import android.widget.CompoundButton;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Toast;
+import android.content.Intent;
 
-import android.widget.ImageButton;
+// hashkey 얻을때 사용.
+import java.security.MessageDigest;
+import android.content.pm.Signature;
+import android.util.Log;
+
+// facebook에서 씀
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.widget.LoginButton;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,9 +37,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
-        setContentView(R.layout.layout);
+        setContentView(R.layout.login_layout);
 
+        // 테스트용
         String CorrectId, CorrectPw;
+        CorrectId = "admin";
+        CorrectPw = "0000";
 
         idInput = (EditText) findViewById(R.id.emailInput);
         passwordInput = (EditText) findViewById(R.id.passwordInput);
@@ -36,9 +50,26 @@ public class MainActivity extends AppCompatActivity {
         loginBtn = (Button) findViewById(R.id.loginButton);
         SignupBtn = (Button) findViewById(R.id.signupButton);
 
+        // 페이스북 연동 테스트. 해쉬키를 얻을때 사용함.
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md;
+                md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String something = new String(Base64.encode(md.digest(), 0));
+                Log.d("Hash key", something);
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            Log.e("name not found", e.toString());
+        }
 
-        CorrectId = "admin";
-        CorrectPw = "0000";
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+
+
+
         /*
         // if autoLogin checked, get input
         if (pref.getBoolean("autoLogin", true)) {
@@ -87,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         */
 
     }
+
     public void loginBtnClick (View v) {
         //Id = idInput.getText().toString();
         //Pw = passwordInput.getText().toString();

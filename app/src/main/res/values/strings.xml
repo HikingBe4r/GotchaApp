@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">7K_Gotcha</string>
+    <string name="app_name">7Knights_GotchaApp</string>
+    <string name="facebook_app_id">1164136970299653</string> <!-- 1164136970299653은 내 아이디.-->
 </resources>
