@@ -90,12 +90,16 @@ public class MainActivity extends AppCompatActivity {
     public void loginBtnClick (View v) {
         //Id = idInput.getText().toString();
         //Pw = passwordInput.getText().toString();
-        if(idInput.getText().toString().equals(passwordInput.getText().toString() )){// && passwordInput.getText().toString() == Pw) {
+        // 아이디 비밀번호는 가입하면 등록되도록. 그리고 등록된것에서 찾아서 맞는지 확인시킬것.
+        if(idInput.getText().toString().equals("admin") && passwordInput.getText().toString().equals("admin")){// && passwordInput.getText().toString() == Pw) {
             //System.out.println("헉!");
-            Toast.makeText(this, "정답!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "로그인 되었습니다.", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, passwordInput.getText().toString() , Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "아이디 또는 비밀번호를 다시 확인해주세요.", Toast.LENGTH_LONG).show();
         }
+    }
+    public void signupBtnClick (View v) {
+        Toast.makeText(this, "준비중입니다.", Toast.LENGTH_LONG).show();
     }
 
     private boolean loginValidation(String id, String password) {

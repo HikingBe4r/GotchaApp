@@ -26,6 +26,7 @@
         android:id="@+id/loginButton"
         android:textAllCaps="false"
         android:layout_marginTop="20dp"
+        android:onClick="loginBtnClick"
         android:layout_below="@+id/passwordInput"
         android:layout_toStartOf="@+id/signupButton" />
 
@@ -34,6 +35,7 @@
         android:layout_height="55dp"
         android:text="Sign up"
         android:id="@+id/signupButton"
+        android:onClick="signupBtnClick"
         android:textAllCaps="false"
         android:layout_alignTop="@+id/loginButton"
         android:layout_alignEnd="@+id/passwordInput" />
