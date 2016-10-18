@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.login_layout);
 
         // 테스트용
         String CorrectId, CorrectPw;
@@ -67,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
 
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
-
-        setContentView(R.layout.login_layout);
 
 
 
