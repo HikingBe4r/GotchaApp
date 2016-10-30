@@ -6,39 +6,30 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:id="@+id/emailInput"
+        android:id="@+id/login_email"
         android:layout_centerHorizontal="true"
         android:hint="Email"
+        android:inputType="textEmailAddress"
         android:layout_marginTop="151dp" />
 
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:id="@+id/passwordInput"
+        android:id="@+id/login_password"
         android:layout_centerHorizontal="true"
         android:hint="Password"
-        android:layout_below="@+id/emailInput" />
-
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:text="Log in"
-        android:id="@+id/loginButton"
-        android:textAllCaps="false"
-        android:layout_marginTop="20dp"
-        android:onClick="loginBtnClick"
-        android:layout_below="@+id/passwordInput"
-        android:layout_toStartOf="@+id/signupButton" />
+        android:inputType="textUri"
+        android:layout_below="@+id/login_email" />
 
     <Button
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:text="Sign up"
-        android:id="@+id/signupButton"
+        android:id="@+id/signupButton_login"
         android:onClick="signupBtnClick"
         android:textAllCaps="false"
         android:layout_alignTop="@+id/loginButton"
-        android:layout_alignEnd="@+id/passwordInput" />
+        android:layout_alignEnd="@+id/login_password" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -49,5 +40,27 @@
         android:layout_below="@+id/loginButton"
         android:layout_centerHorizontal="true" />
 
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/checkBox"
+        android:layout_alignStart="@+id/loginButton"
+        android:layout_toStartOf="@+id/signupButton"
+        android:layout_alignEnd="@+id/signupButton_login" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="Log in"
+        android:id="@+id/loginButton"
+        android:textAllCaps="false"
+        android:layout_marginTop="18dp"
+        android:onClick="loginBtnClick"
+        android:layout_below="@+id/login_password"
+        android:layout_toStartOf="@+id/signupButton_login" />
 
 </RelativeLayout>
+

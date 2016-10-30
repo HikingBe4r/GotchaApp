@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:id="@+id/signup_email"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="111dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/signup_password" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:id="@+id/signup_password"
+        android:hint="Password"
+        android:inputType="textUri"
+        android:layout_below="@+id/signup_email"
+        android:layout_alignStart="@+id/signup_password_confirm" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:id="@+id/signup_password_confirm"
+        android:hint="Password Confirm"
+        android:inputType="textUri"
+        android:layout_below="@+id/signup_password"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/signupButton"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="Sign up"
+        android:textAllCaps="false"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/signup_password_confirm"
+        android:layout_alignStart="@+id/signup_password_confirm" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="Back"
+        android:textAllCaps="false"
+        android:layout_alignBottom="@+id/signupButton"
+        android:layout_toEndOf="@+id/signupButton"
+        android:layout_alignTop="@+id/signupButton" />
+
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signupButton"
+        android:layout_marginTop="52dp"
+        android:layout_alignStart="@+id/signupButton"
+        android:layout_alignEnd="@+id/backButton"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>
+
